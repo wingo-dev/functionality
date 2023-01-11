@@ -1,7 +1,20 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
-  const headingText = "Hello";
+
+  const [headingText, setHeadingText] = useState('Hello');
+  const [isMouseOver, setMouseOver] = useState(false);
+
+  function handleClick() {
+    setHeadingText("World");
+  }
+  function handleMouseOver() {
+    setMouseOver(true);
+  }
+  function handleMouseOut() {
+    setMouseOver(false);
+  }
   return (
     <div className="App">
       <header className="App-header">Functionality</header>
@@ -10,7 +23,11 @@ function App() {
         <div>
           <input type='text' placeholder="input text" />
         </div>
-        <button>Submit</button>
+        <button style={{ backgroundColor: isMouseOver ? "blue" : "white" }}
+          onClick={handleClick}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >Submit</button>
       </div>
     </div>
   );
