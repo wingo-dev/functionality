@@ -6,9 +6,7 @@ function App() {
   console.log(fullName);
 
   function handleChange(e) {
-    const value = e.target.value;
-    const name = e.target.name;
-
+    const { value, name } = e.target;
     setFullName((prev_value) => {
       if (name === 'fname') {
         return {
