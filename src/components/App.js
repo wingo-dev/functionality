@@ -2,12 +2,16 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-
-  const [headingText, setHeadingText] = useState('Hello');
+  const [name, setName] = useState('');
+  const [headingText, setHeadingText] = useState('');
   const [isMouseOver, setMouseOver] = useState(false);
 
+
   function handleClick() {
-    setHeadingText("World");
+    setHeadingText(name);
+  }
+  function handleChange(event) {
+    setName(event.target.value);
   }
   function handleMouseOver() {
     setMouseOver(true);
@@ -15,13 +19,11 @@ function App() {
   function handleMouseOut() {
     setMouseOver(false);
   }
-  function handleChange(event) {
-    setHeadingText(event.target.value);
-  }
+
   return (
     <div className="App">
       <header className="App-header">Functionality</header>
-      <h1>{headingText}</h1>
+      <h1>Hello, {headingText}</h1>
       <div>
         <div>
           <input type='text' placeholder="input text" onChange={handleChange} />
