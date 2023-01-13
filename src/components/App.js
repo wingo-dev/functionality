@@ -8,16 +8,9 @@ function App() {
   function handleChange(e) {
     const { value, name } = e.target;
     setFullName((prev_value) => {
-      if (name === 'fname') {
-        return {
-          fname: value,
-          lname: prev_value.lname
-        };
-      } else if (name === 'lname') {
-        return {
-          fname: prev_value.fname,
-          lname: value
-        };
+      return {
+        ...prev_value,
+        [name]: value
       }
     });
   }
